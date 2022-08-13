@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-ExtraLight.woff');
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-ExtraLightItalic.woff');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-Light.woff');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-LightItalic.woff');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-Regular.woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-Italic.woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-Medium.woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-MediumItalic.woff');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-SemiBold.woff');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-SemiBoldItalic.woff');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-Bold.woff');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-BoldItalic.woff');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-ExtraBold.woff');
+  font-weight: 800;
+}
+@font-face {
+  font-family: 'plus-jakarta-sans';
+  src: url('../fonts/PlusJakartaSans-ExtraBoldItalic.woff');
+  font-weight: 800;
+  font-style: italic;
+}
+
+h1 {
+  @apply text-5lg;
+}
+h2 {
+  @apply text-4lg;
+}
+h3 {
+  @apply text-3lg;
+}
+h4 {
+  @apply text-2lg;
+}
+h5 {
+  @apply text-1lg;
+}
+
+body {
+  @apply bg-slate-100 cursor-default font-medium text-neutral-500;
+}

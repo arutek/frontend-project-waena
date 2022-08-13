@@ -1,0 +1,12 @@
+.button {
+  @apply rounded p-2;
+}
+
+.btn {
+  &-primary {
+    @apply bg-sky-500 text-white;
+    &:hover {
+      @apply bg-sky-600
+    }
+  }
+}
