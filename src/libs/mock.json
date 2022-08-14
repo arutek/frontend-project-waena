@@ -1,0 +1,104 @@
+{
+  "getProducts": [
+    {
+      "id": 1,
+      "img": "https://via.placeholder.com/100",
+      "name": "Product 1",
+      "sku": "123123",
+      "qty": 1010,
+      "price": 20000,
+      "rating": 5,
+      "status": "Ready"
+    },
+    {
+      "id": 2,
+      "img": "https://via.placeholder.com/100",
+      "name": "Product 2",
+      "sku": "123123",
+      "qty": 1200,
+      "price": 20000,
+      "rating": 5,
+      "status": "Ready"
+    },
+    {
+      "id": 3,
+      "img": "https://via.placeholder.com/100",
+      "name": "Product 3",
+      "sku": "123123",
+      "qty": 3100,
+      "price": 20000,
+      "rating": 5,
+      "status": "Ready"
+    },
+    {
+      "id": 4,
+      "img": "https://via.placeholder.com/100",
+      "name": "Product 4",
+      "sku": "123123",
+      "qty": 1004,
+      "price": 20000,
+      "rating": 5,
+      "status": "Ready"
+    },
+    {
+      "id": 5,
+      "img": "https://via.placeholder.com/100",
+      "name": "Product 5",
+      "sku": "123123",
+      "qty": 1020,
+      "price": 20000,
+      "rating": 5,
+      "status": "Ready"
+    },
+    {
+      "id": 6,
+      "img": "https://via.placeholder.com/100",
+      "name": "Product 6",
+      "sku": "123123",
+      "qty": 5100,
+      "price": 20000,
+      "rating": 5,
+      "status": "Ready"
+    },
+    {
+      "id": 7,
+      "img": "https://via.placeholder.com/100",
+      "name": "Product 7",
+      "sku": "123123",
+      "qty": 10,
+      "price": 20000,
+      "rating": 5,
+      "status": "Ready"
+    },
+    {
+      "id": 8,
+      "img": "https://via.placeholder.com/100",
+      "name": "Product 8",
+      "sku": "123123",
+      "qty": 3,
+      "price": 20000,
+      "rating": 5,
+      "status": "Ready"
+    },
+    {
+      "id": 9,
+      "img": "https://via.placeholder.com/100",
+      "name": "Product 9",
+      "sku": "123123",
+      "qty": 1,
+      "price": 20000,
+      "rating": 5,
+      "status": "Ready"
+    },
+    {
+      "id": 10,
+      "img": "https://via.placeholder.com/100",
+      "name": "Product 10",
+      "sku": "123123",
+      "qty": 100,
+      "price": 20000,
+      "rating": 5,
+      "status": "Ready"
+    }
+  ]
+}

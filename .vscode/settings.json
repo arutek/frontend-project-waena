@@ -1,0 +1,6 @@
+{
+  "scss.lint.unknownAtRules": "ignore",
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
+  "html.completion.attributeDefaultValue": "singlequotes",
+}
