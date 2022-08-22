@@ -1,7 +1,7 @@
 import NavigationBar from '../components/commons/NavigationBar'
 import HeaderBar from '../components/commons/HeaderBar'
 import Table from '../components/commons/Table'
-import mock from '../libs/mock.json'
+import mock from '../libraries/mock.json'
 import { Link } from '@solidjs/router'
 
 export default () => {
