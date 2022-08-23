@@ -1,0 +1,7 @@
+declare module '@/components/commons/HeaderBar'
+declare module '@/components/commons/NavigationBar'
+declare module '@/components/commons/Table'
+declare module '@/pages/Home'
+declare module '@/pages/Signin'
+declare module '@/routes/Index'
+declare module '@/routes/Main'

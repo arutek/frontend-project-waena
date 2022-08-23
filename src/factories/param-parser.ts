@@ -1,5 +1,5 @@
 export default {
-  paramChecker (url:string, param:object) {
+  paramParser (url:string, param:object) {
     const params = Object.entries(param)
     url += '?'
     params.forEach((item) => {

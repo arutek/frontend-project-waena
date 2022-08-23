@@ -1,19 +1,33 @@
 import imgLogin from '@/assets/images/login.png'
 import { useNavigate } from '@solidjs/router'
-import { createSignal, Match, Switch } from 'solid-js'
-import auth from '../libraries/auth'
+import { createSignal, Match, onMount, Switch } from 'solid-js'
+import auth from '@/libraries/auth'
+import apiCall from '@/libraries/api-call'
+
+const authUrl = `${import.meta.env.VITE_APP_API}/auth`
 
 export default () => {
-  let usernameInput
-  let emailInput
-  let passwordInput
-  let confPassInput
+  const usernameInput = document.querySelector('#username-field') as HTMLInputElement
+  const emailInput = document.querySelector('#email-field') as HTMLInputElement
+  const passwordInput = document.querySelector('#password-field') as HTMLInputElement
+  const confPassInput = document.querySelector('#conf-pass-field') as HTMLInputElement
   const navigate = useNavigate()
   const [username, setUsername] = createSignal('')
   const [email, setEmail] = createSignal('')
   const [password, setPassword] = createSignal('')
   const [confPass, setConfPass] = createSignal('')
   const [authType, setAuthType] = createSignal('signup')
+  onMount( async() => {
+    let res
+    const navigate = useNavigate()
+    try {
+      res = await apiCall.loggedGet(authUrl)
+      if (res.errors) return
+      navigate('/', {replace: true})
+    } catch (err:any) {
+      console.error(err)
+    }
+  })
   const signin = async () => {
     try {
       const payload = {
@@ -23,7 +37,7 @@ export default () => {
       const res = await auth.signin(payload)
       if (res.errors) throw res
       navigate('/', {replace: true})
-    } catch (err) {
+    } catch (err:any) {
       console.error(err.errors[0])
     }
   }
@@ -38,7 +52,7 @@ export default () => {
       const res = await auth.signup(payload)
       if (res.errors) throw res
       setAuthType('signin')
-    } catch (err) {
+    } catch (err:any) {
       console.error(err.errors[0])
     }
   }
@@ -64,8 +78,8 @@ export default () => {
             <Match when={authType() === 'signin'}>
               <h5 class='font-bold text-black'>Sign In</h5>
               <div class='py-4 text-1sm'>
-                <input type='text' onKeyUp={() => setEmail(emailInput.value)} ref={emailInput} id="email-field" class='input mb-8 w-full' placeholder='Email' />
-                <input type='password' onKeyUp={() => setPassword(passwordInput.value)} ref={passwordInput} id="password-field" class='input mb-8 w-full' placeholder='Password' />
+                <input type='text' onKeyUp={() => setEmail(emailInput.value)} value={email()} id="email-field" class='input mb-8 w-full' placeholder='Email' />
+                <input type='password' onKeyUp={() => setPassword(passwordInput.value)} value={password()} id="password-field" class='input mb-8 w-full' placeholder='Password' />
                 <button onClick={() => signin()} class='button btn-primary w-full' >Sign In</button>
               </div>
               <p class='text-1sm'>Not a Member yet? <a onClick={() => setAuthType('signup')} class='text-sky-500 cursor-pointer'>Sign up</a></p>
@@ -73,10 +87,10 @@ export default () => {
             <Match when={authType() === 'signup'}>
               <h5 class='font-bold text-black'>Sign Up</h5>
               <div class='py-4 text-1sm'>
-                <input type='text' onKeyUp={() => setUsername(usernameInput.value)} ref={usernameInput} id="username-field" class='input mb-8 w-full' placeholder='Username' />
-                <input type='text' onKeyUp={() => setEmail(emailInput.value)} ref={emailInput} id="email-field" class='input mb-8 w-full' placeholder='Email' />
-                <input type='password' onKeyUp={() => setPassword(passwordInput.value)} ref={passwordInput} id="password-field" class='input mb-8 w-full' placeholder='Password' />
-                <input type='password' onKeyUp={() => setConfPass(confPassInput.value)} ref={confPassInput} id="conf-pass-field" class='input mb-8 w-full' placeholder='Confirm Password' />
+                <input type='text' onKeyUp={() => setUsername(usernameInput.value)} value={username()} id="username-field" class='input mb-8 w-full' placeholder='Username' />
+                <input type='text' onKeyUp={() => setEmail(emailInput.value)} value={email()} id="email-field" class='input mb-8 w-full' placeholder='Email' />
+                <input type='password' onKeyUp={() => setPassword(passwordInput.value)} value={password()} id="password-field" class='input mb-8 w-full' placeholder='Password' />
+                <input type='password' onKeyUp={() => setConfPass(confPassInput.value)} value={confPass()} id="conf-pass-field" class='input mb-8 w-full' placeholder='Confirm Password' />
                 <button onClick={() => signup()} class='button btn-primary w-full' >Sign Up</button>
               </div>
               <p class='text-1sm'>Already registered? <a onClick={() => setAuthType('signin')} class='text-sky-500 cursor-pointer'>Sign in</a></p>

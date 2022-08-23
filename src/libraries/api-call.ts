@@ -1,5 +1,5 @@
-import cookie from '../factories/cookie'
-import paramChecker from '../factories/paramChecker'
+import cookie from '@/factories/cookie'
+import paramParser from '@/factories/param-parser'
 
 export default {
   async getIp () {
@@ -7,26 +7,26 @@ export default {
       const res = fetch('https://api64.ipify.org')
       const resBody = (await res).text()
       return resBody
-    } catch {
-      return 'Failed to fetch IP'
+    } catch(err:any) {
+      return `${err.name}: ${err.message}`
     }
   },
   async getData (url:string, param?:object) {
     if (param) {
-      url = paramChecker.paramChecker(url, param)
+      url = paramParser.paramParser(url, param)
     }
     try {
       const res = await fetch(url)
       const resBody = await res.json()
       if (!res.ok) throw resBody
       return resBody
-    } catch (err) {
+    } catch (err:any) {
       return err
     }
   },
   async loggedGet (url:string, param?:object) {
     if (param) {
-      url = paramChecker.paramChecker(url, param)
+      url = paramParser.paramParser(url, param)
     }
     try {
       const token = cookie.getCookie('accessToken')
@@ -39,7 +39,7 @@ export default {
       const resBody = await res.json()
       if (!res.ok) throw resBody
       return resBody
-    } catch (err) {
+    } catch (err:any) {
       return err
     }
   },
@@ -52,7 +52,7 @@ export default {
       const resBody = await res.json()
       if (!res.ok) throw resBody
       return resBody
-    } catch (err) {
+    } catch (err:any) {
       return err
     }
   },
@@ -65,7 +65,7 @@ export default {
       const resBody = await res.json()
       if (!res.ok) throw resBody
       return resBody
-    } catch (err) {
+    } catch (err:any) {
       return err
     }
   },

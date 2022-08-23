@@ -1,6 +1,6 @@
 import { Routes, Route } from '@solidjs/router'
-import Home from '../pages/Home'
-import auth from '../libraries/auth'
+import Home from '@/pages/Home'
+import auth from '@/libraries/auth'
 import { onMount } from 'solid-js'
 
 export default () => {

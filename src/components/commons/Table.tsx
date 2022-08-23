@@ -1,12 +1,6 @@
 import { For, Match, Switch } from 'solid-js'
 
-type headListValue = {
-  name: string,
-  value: string,
-  type: 'TEXT' | 'NUM' | 'CUR' | 'WIMG' | 'IMG' | 'RATE' | 'LABEL',
-} 
-
-export default (props: {headList:headListValue[], list:Object[]}) => {
+export default (props: {headList:any[], list:any[]}) => {
   return (
     <table class='table-fixed w-full text-center'>
       <thead class='bg-neutral-100'>

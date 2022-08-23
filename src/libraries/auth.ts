@@ -10,14 +10,14 @@ export default {
     const navigate = useNavigate()
     try {
       res = await apiCall.loggedGet(authUrl)
-      if (res.errors) throw res
+      if (res.errors) throw new Error(res.errors[0])
       const expiry = 30 * 60
       cookie.setCookie('accessToken', res.data, expiry)
       return res
-    } catch (err) {
-      console.error(err)
+    } catch (err:any) {
       cookie.delCookie('accessToken')
       navigate('/signin', {replace: true})
+      return ({errors: [`${err.name}: ${err.message}`]})
     }
   },
   async signin (payload:object) {
@@ -28,12 +28,12 @@ export default {
         {ip: clientIp},
       )
       const res = await apiCall.postData(`${authUrl}/signin`, newPayload)
-      if (res.errors) throw res
+      if (res.errors) throw new Error(res.errors[0])
       const expiry = 30 * 60
       cookie.setCookie('accessToken', res.data, expiry)
       return res
-    } catch (err) {
-      return err
+    } catch (err:any) {
+      return ({errors: [`${err.name}: ${err.message}`]})
     }
   },
   async signup (payload:object) {
@@ -44,10 +44,10 @@ export default {
         {ip: clientIp},
       )
       const res = await apiCall.postData(`${authUrl}/signup`, newPayload)
-      if (res.errors) throw res
+      if (res.errors) throw new Error(res.errors[0])
       return res
-    } catch (err) {
-      return err
+    } catch (err:any) {
+      return ({errors: [`${err.name}: ${err.message}`]})
     }
   },
 }

@@ -1,6 +1,6 @@
 import { Routes, Route } from '@solidjs/router'
 import Main from './Main'
-import Signin from '../pages/Signin'
+import Signin from '@/pages/Signin'
 
 export default () => {
   return (
