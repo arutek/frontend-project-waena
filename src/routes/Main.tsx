@@ -1,3 +1,5 @@
+import NavigationBar from '@/components/commons/NavigationBar'
+import HeaderBar from '@/components/commons/HeaderBar'
 import { Routes, Route } from '@solidjs/router'
 import Home from '@/pages/Home'
 import auth from '@/libraries/auth'
@@ -8,8 +10,12 @@ export default () => {
     await auth.middleware()
   })
   return (
-    <Routes>
-      <Route path="" component={Home} />
-    </Routes>
+    <main>
+      <NavigationBar />
+      <HeaderBar />
+      <Routes>
+        <Route path="" component={Home} />
+      </Routes>
+    </main>
   )
 }

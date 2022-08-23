@@ -1,6 +1,4 @@
-import NavigationBar from '@/components/commons/NavigationBar'
-import HeaderBar from '@/components/commons/HeaderBar'
-import Table from '../components/commons/Table'
+import Table from '@/components/commons/Table'
 import mock from '../libraries/mock.json'
 import { Link } from '@solidjs/router'
 
@@ -16,8 +14,6 @@ export default () => {
   ]
   return (
     <main>
-      <NavigationBar />
-      <HeaderBar />
       <section class='flex flex-row'>
         <div class='basis-2/12' />
         <section id='main-content' class='relative top-14 right-0 basis-10/12'>

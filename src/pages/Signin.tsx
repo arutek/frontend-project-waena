@@ -7,10 +7,10 @@ import apiCall from '@/libraries/api-call'
 const authUrl = `${import.meta.env.VITE_APP_API}/auth`
 
 export default () => {
-  const usernameInput = document.querySelector('#username-field') as HTMLInputElement
-  const emailInput = document.querySelector('#email-field') as HTMLInputElement
-  const passwordInput = document.querySelector('#password-field') as HTMLInputElement
-  const confPassInput = document.querySelector('#conf-pass-field') as HTMLInputElement
+  let usernameInput = document.querySelector('#username-field') as HTMLInputElement
+  let emailInput = document.querySelector('#email-field') as HTMLInputElement
+  let passwordInput = document.querySelector('#password-field') as HTMLInputElement
+  let confPassInput = document.querySelector('#conf-pass-field') as HTMLInputElement
   const navigate = useNavigate()
   const [username, setUsername] = createSignal('')
   const [email, setEmail] = createSignal('')
@@ -78,8 +78,8 @@ export default () => {
             <Match when={authType() === 'signin'}>
               <h5 class='font-bold text-black'>Sign In</h5>
               <div class='py-4 text-1sm'>
-                <input type='text' onKeyUp={() => setEmail(emailInput.value)} value={email()} id="email-field" class='input mb-8 w-full' placeholder='Email' />
-                <input type='password' onKeyUp={() => setPassword(passwordInput.value)} value={password()} id="password-field" class='input mb-8 w-full' placeholder='Password' />
+                <input type='text' onKeyUp={() => setEmail(emailInput.value)} ref={emailInput} id="email-field" class='input mb-8 w-full' placeholder='Email' />
+                <input type='password' onKeyUp={() => setPassword(passwordInput.value)} ref={passwordInput} id="password-field" class='input mb-8 w-full' placeholder='Password' />
                 <button onClick={() => signin()} class='button btn-primary w-full' >Sign In</button>
               </div>
               <p class='text-1sm'>Not a Member yet? <a onClick={() => setAuthType('signup')} class='text-sky-500 cursor-pointer'>Sign up</a></p>
@@ -87,10 +87,10 @@ export default () => {
             <Match when={authType() === 'signup'}>
               <h5 class='font-bold text-black'>Sign Up</h5>
               <div class='py-4 text-1sm'>
-                <input type='text' onKeyUp={() => setUsername(usernameInput.value)} value={username()} id="username-field" class='input mb-8 w-full' placeholder='Username' />
-                <input type='text' onKeyUp={() => setEmail(emailInput.value)} value={email()} id="email-field" class='input mb-8 w-full' placeholder='Email' />
-                <input type='password' onKeyUp={() => setPassword(passwordInput.value)} value={password()} id="password-field" class='input mb-8 w-full' placeholder='Password' />
-                <input type='password' onKeyUp={() => setConfPass(confPassInput.value)} value={confPass()} id="conf-pass-field" class='input mb-8 w-full' placeholder='Confirm Password' />
+                <input type='text' onKeyUp={() => setUsername(usernameInput.value)} ref={usernameInput} id="username-field" class='input mb-8 w-full' placeholder='Username' />
+                <input type='text' onKeyUp={() => setEmail(emailInput.value)} ref={emailInput} id="email-field" class='input mb-8 w-full' placeholder='Email' />
+                <input type='password' onKeyUp={() => setPassword(passwordInput.value)} ref={passwordInput} id="password-field" class='input mb-8 w-full' placeholder='Password' />
+                <input type='password' onKeyUp={() => setConfPass(confPassInput.value)} ref={confPassInput} id="conf-pass-field" class='input mb-8 w-full' placeholder='Confirm Password' />
                 <button onClick={() => signup()} class='button btn-primary w-full' >Sign Up</button>
               </div>
               <p class='text-1sm'>Already registered? <a onClick={() => setAuthType('signin')} class='text-sky-500 cursor-pointer'>Sign in</a></p>
